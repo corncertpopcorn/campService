@@ -1,6 +1,8 @@
 import css from "./main.module.scss";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
+import { ReserveList } from "../component/reserveList";
+import { CantReserveList } from "../component/cantReserveList";
 
 export const Main = () => {
   return (
@@ -78,27 +80,120 @@ export const Main = () => {
           </div>
         </div>
         <div className={css.reserveWrapper}>
-          <div className={css.reserveWrapper}>
-            <div className={css.reserveWrapper}></div>
-            <div className={css.reserveWrapper}></div>
-            <div className={css.reserveWrapper}></div>
-          </div>
-          <div className={css.reserveWrapper}>
-            <div className={css.reserveWrapper}>
-              <div className={css.reserveWrapper}>
-                <div className={css.reserveWrapper}>
-                  <div className={css.reserveWrapper}></div>
-                  <div className={css.reserveWrapper}></div>
-                </div>
-                <div className={css.reserveWrapper}></div>
-                <div className={css.reserveWrapper}></div>
-              </div>
-              <div className={css.reserveWrapper}></div>
+          <div className={css.reserveTitleWrapper}>
+            <div className={css.reserveTitle1}>캠핑장 둘러보기</div>
+            <div className={css.reserveTitle2}>캠핑장 정보 및 예약 현황</div>
+            <div className={css.reserveTitle3}>
+              두랭이해변오토캠핑장의 모든 캠핑장과 예약현황을 확인해보세요.
             </div>
-            <div className={css.reserveWrapper}></div>
+          </div>
+          <div className={css.reserveContentWrapper}>
+            <div className={css.reserveDetailWrapper}>
+              <ReserveList />
+              <ReserveList />
+            </div>
+            <div className={css.reserveDetailWrapper}>
+              <CantReserveList />
+              <CantReserveList />
+            </div>
           </div>
         </div>
-        <div className={css.locationWrapper}></div>
+        <div className={css.locationWrapper}>
+          <div className={css.locationTitleWrapper}>
+            <div className={css.titleText1}>두랭이오토해변캠핑장 위치 소개</div>
+            <div className={css.titleText2}>
+              두랭이오토해변캠핑장과 행복한 여행
+            </div>
+            <div className={css.titleText3}>
+              두랭이오토해변캠핑장의 위치와 가까운 여수 추천 여행지를
+              소개합니다. 즐거운 캠핑과 함께 주변 주요 관광지를 둘러보세요.
+            </div>
+          </div>
+          <div className={css.locationContentWrapper}>
+            <div className={css.locationContentDetailWrapper}>
+              <div className={css.locationLeftWrapper}>
+                <div className={css.leftTitleWrapper}>
+                  <div className={css.leftTitle}>
+                    <div className={css.titleText}>순천</div>
+                  </div>
+                  <div className={css.leftTitle}>
+                    <div className={css.titleText}>여수</div>
+                  </div>
+                  <div className={css.leftTitle}>
+                    <div className={css.titleText}>보성</div>
+                  </div>
+                </div>
+                <div className={css.leftImageWrapper}></div>
+              </div>
+              <div className={css.locationRightWrapper}>
+                <div className={css.locationRightContentWrapper}>
+                  <div className={css.rightImage}></div>
+                  <div className={css.rightContentWrapper}>
+                    <div className={css.detailTitleWrapper}>
+                      <div className={css.title1}>두랭이오토해변캠핑장</div>
+                      <div className={css.title2}>
+                        전남 여수에 위치한 두랭이오토해변캠핑장은 여수의 주요
+                        여행지와 가까운 거리에 있는 최고 시설 캠핑장입니다.
+                        캠핑장에 방문 후 즐거운 여수 여행을 시작하세요.
+                      </div>
+                    </div>
+                    <div className={css.detailContentWrapper}>
+                      <div className={css.detailContentTitle}>주요 정보</div>
+                      <div className={css.detailContentTextWrapper}>
+                        <div className={css.textDetailWrapper}>
+                          <div className={css.leftText1}>주소</div>
+                          <div className={css.rightText1}>
+                            전남 여수시 율촌면 두언길 106-51
+                          </div>
+                        </div>
+                        <div className={css.textDetailWrapper}>
+                          <div className={css.leftText2}>즐길거리</div>
+                          <div className={css.rightText2}>꼬막정식</div>
+                        </div>
+                        <div className={css.textDetailWrapper}>
+                          <div className={css.leftText3}>캠핑장 거리</div>
+                          <div className={css.rightText3}>40분</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={css.locationRightContentWrapper}>
+                  <div className={css.rightImage}></div>
+                  <div className={css.rightContentWrapper}>
+                    <div className={css.detailTitleWrapper}>
+                      <div className={css.title1}>두랭이오토해변캠핑장</div>
+                      <div className={css.title2}>
+                        전남 여수에 위치한 두랭이오토해변캠핑장은 여수의 주요
+                        여행지와 가까운 거리에 있는 최고 시설 캠핑장입니다.
+                        캠핑장에 방문 후 즐거운 여수 여행을 시작하세요.
+                      </div>
+                    </div>
+                    <div className={css.detailContentWrapper}>
+                      <div className={css.detailContentTitle}>주요 정보</div>
+                      <div className={css.detailContentTextWrapper}>
+                        <div className={css.textDetailWrapper}>
+                          <div className={css.leftText1}>주소</div>
+                          <div className={css.rightText1}>
+                            전남 여수시 율촌면 두언길 106-51
+                          </div>
+                        </div>
+                        <div className={css.textDetailWrapper}>
+                          <div className={css.leftText2}>즐길거리</div>
+                          <div className={css.rightText2}>꼬막정식</div>
+                        </div>
+                        <div className={css.textDetailWrapper}>
+                          <div className={css.leftText3}>캠핑장 거리</div>
+                          <div className={css.rightText3}>40분</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <Footer />
       </div>
     </div>
