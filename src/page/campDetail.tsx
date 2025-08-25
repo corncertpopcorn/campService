@@ -26,13 +26,16 @@ export const CampDetail = () => {
                       <div className={css.canReserveText}>예약가능</div>
                     </div>
                   </div>
-                  <div className={css.titleDetailText}>
-                    두랭이오토캠핑장은 바다와 함께 즐기는 완벽한 휴식공간입니다.
-                  </div>
-                  <div className={css.titleDetailText}>
-                    해안가에 자리잡은 캠핑장에서는 시원한 바람과 탁 트인 파도
-                    소리를 들으며 마음의 평화를 찾을 수 있습니다.
-                  </div>
+                  <ul>
+                    <li className={css.titleDetailText}>
+                      두랭이오토캠핑장은 바다와 함께 즐기는 완벽한
+                      휴식공간입니다.
+                    </li>
+                    <li className={css.titleDetailText}>
+                      해안가에 자리잡은 캠핑장에서는 시원한 바람과 탁 트인 파도
+                      소리를 들으며 마음의 평화를 찾을 수 있습니다.
+                    </li>
+                  </ul>
                 </div>
                 <div className={css.contentWrapper}>
                   <div className={css.contentDetail}>사이트 상세정보</div>

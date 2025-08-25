@@ -110,7 +110,8 @@
           gap: 6px;
 
           .text1 {
-            width: 114px;
+            width: 100%;
+            max-width: 114px;
 
             color: #5c5c68;
             font-family: Pretendard;
@@ -173,7 +174,8 @@
 
       .reserveButton {
         display: flex;
-        width: 142px;
+        width: 100%;
+        max-width: 142px;
         height: 23px;
         padding: var(--25, 10px) var(--5, 20px);
         justify-content: center;

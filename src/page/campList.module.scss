@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
-  width: 1920px;
+  width: 100%;
+  max-width: 1920px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -10,7 +11,8 @@
 
   .campWrapper {
     display: flex;
-    width: 1920px;
+    width: 100%;
+    max-width: 1920px;
     flex-direction: column;
     align-items: flex-start;
 
@@ -27,7 +29,8 @@
 
       .titleWrapper {
         display: flex;
-        width: 1396px;
+        width: 100%;
+        max-width: 1396px;
         flex-direction: column;
         align-items: center;
         gap: 4px;
@@ -56,12 +59,15 @@
       .contentDetailWrapper {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 32px;
+
+        align-self: stretch;
 
         .searchWrapper {
           display: flex;
-          width: 1400px;
+          width: 100%;
+          max-width: 1400px;
           height: 98px;
           padding: 20px 22px;
           justify-content: space-between;
@@ -72,9 +78,12 @@
           background: #fff;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 
+          box-sizing: border-box;
+
           .dateWrapper {
             display: flex;
-            width: 396px;
+            width: 100%;
+            max-width: 396px;
             flex-direction: column;
             align-items: flex-start;
             gap: 8px;
@@ -179,7 +188,8 @@
 
           .reserveButtonWrapper {
             display: flex;
-            width: 378px;
+            width: 100%;
+            max-width: 378px;
             align-items: center;
             gap: 18px;
             flex-shrink: 0;
@@ -237,20 +247,26 @@
 
         .campDetailWrapper {
           display: flex;
-          width: 1400px;
           flex-direction: column;
-          align-items: flex-start;
+          align-items: center;
           gap: 14px;
+
+          //align-self: stretch;
+          width: 100%;
+          max-width: 1400px;
+
           .reserveCampWrapper {
             display: flex;
-            width: 1400px;
+            width: 100%;
+            max-width: 1400px;
             align-items: flex-start;
             gap: 14px;
           }
 
           .cantReserveWrapper {
             display: flex;
-            width: 1400px;
+            width: 100%;
+            max-width: 1400px;
             align-items: flex-start;
             gap: 14px;
           }

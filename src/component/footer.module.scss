@@ -1,7 +1,8 @@
 .wrapper {
   display: flex;
-  width: 1920px;
-  height: 326px;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
   padding-bottom: 102px;
   flex-direction: column;
   justify-content: space-between;
@@ -9,6 +10,7 @@
   flex-shrink: 0;
 
   background: #fcfeff;
+  gap: 60px;
 
   .menuWrapper {
     display: flex;
@@ -24,7 +26,8 @@
 
     .menuDetailWrapper {
       display: flex;
-      width: 1400px;
+      width: 100%;
+      max-width: 1400px;
       padding: 20px 0;
       justify-content: center;
       align-items: center;
@@ -55,6 +58,18 @@
           align-self: stretch;
         }
       }
+
+      .menu2 {
+        color: #727584;
+        leading-trim: both;
+        text-edge: cap;
+        font-feature-settings: "liga" off, "clig" off;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
     }
   }
 
@@ -71,8 +86,10 @@
       gap: 4px;
 
       .logoImage {
-        width: 44px;
-        height: 44px;
+        width: 100%;
+        max-width: 44px;
+        height: 100%;
+        max-height: 44px;
         aspect-ratio: 1/1;
 
         background: url("../image/image24.png") rgb(255, 255, 255) 50% / cover
@@ -123,6 +140,131 @@
           font-style: normal;
           font-weight: 400;
           line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    padding-bottom: 51px;
+
+    .menuWrapper {
+      padding: 0 240px;
+      gap: 14px;
+
+      .menuDetailWrapper {
+        padding: 16px 0;
+        gap: 24px;
+        flex-direction: column;
+
+        .menu {
+          font-size: 14px;
+
+          .menuText {
+            font-size: 14px;
+          }
+        }
+
+        .menu2 {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .contentWrapper {
+      gap: 20px;
+
+      .logoWrapper {
+        gap: 3px;
+
+        .logoImage {
+          width: 33px;
+          height: 33px;
+        }
+
+        .logoText {
+          font-size: 14px;
+          line-height: 100%;
+        }
+      }
+
+      .contentTextWrapper {
+        gap: 14px;
+
+        .address {
+          font-size: 14px;
+        }
+
+        .contentNumberWrapper {
+          gap: 6px;
+
+          .text {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding-bottom: 50px;
+
+    .menuWrapper {
+      padding: 0 20px;
+      gap: 12px;
+
+      .menuDetailWrapper {
+        padding: 16px 0;
+        gap: 27px;
+
+        .menu {
+          font-size: 14px;
+
+          .menuText {
+            font-size: 14px;
+          }
+        }
+
+        .menu2 {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .contentWrapper {
+      gap: 18px;
+
+      .logoWrapper {
+        gap: 2px;
+
+        .logoImage {
+          width: 33px;
+          height: 33px;
+        }
+
+        .logoText {
+          font-size: 14px;
+          line-height: 100%;
+        }
+      }
+
+      .contentTextWrapper {
+        gap: 10px;
+
+        .address {
+          font-size: 14px;
+        }
+
+        .contentNumberWrapper {
+          gap: 4px;
+
+          .text {
+            font-size: 14px;
+          }
         }
       }
     }

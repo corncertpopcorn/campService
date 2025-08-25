@@ -4,18 +4,77 @@ import { Footer } from "../component/footer";
 import { ReserveList } from "../component/reserveList";
 import { CantReserveList } from "../component/cantReserveList";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useRef, useState } from "react";
+
 export const Main = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false, // 기본 화살표 숨김
+
+    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+
+    initialSlide: 0, // 명시적으로 설정
+    afterChange: (index: number) => setCurrentSlide(index),
+  };
+
+  const sliderRef = useRef<Slider>(null);
+
+  const getPrevSlide = () => (currentSlide === 0 ? 2 : currentSlide - 1);
+  const getNextSlide = () => (currentSlide === 2 ? 0 : currentSlide + 1);
+
+  const handlePrevClick = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext(); // 반대로 변경
+    }
+  };
+
+  const handleNextClick = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev(); // 반대로 변경
+    }
+  };
+
   return (
     <div className={css.wrapper}>
       <Navbar />
       <div className={css.contentWrapper}>
         <div className={css.slideWrapper}>
-          <div className={css.leftSlideWrapper}>
-            <div className={css.arrow}></div>
+          <div
+            className={`${css.leftSlideWrapper} ${
+              css[`slide${getPrevSlide()}`]
+            }`}
+          >
+            <div className={css.arrow} onClick={handlePrevClick}></div>
           </div>
-          <div className={css.middleSlideWrapper}></div>
-          <div className={css.rightSlideWrapper}>
-            <div className={css.arrow}></div>
+
+          <Slider {...settings} className={css.sliderContainer} ref={sliderRef}>
+            <div className={css.slideItem}>
+              <div className={`${css.middleSlideWrapper} ${css.slide0}`}></div>
+            </div>
+            <div className={css.slideItem}>
+              <div className={`${css.middleSlideWrapper} ${css.slide1}`}></div>
+            </div>
+            <div className={css.slideItem}>
+              <div className={`${css.middleSlideWrapper} ${css.slide2}`}></div>
+            </div>
+          </Slider>
+
+          <div
+            className={`${css.rightSlideWrapper} ${
+              css[`slide${getNextSlide()}`]
+            }`}
+          >
+            <div className={css.arrow} onClick={handleNextClick}></div>
           </div>
         </div>
         <div className={css.adWrapper}>
@@ -123,7 +182,9 @@ export const Main = () => {
                     <div className={css.titleText}>보성</div>
                   </div>
                 </div>
-                <div className={css.leftImageWrapper}></div>
+                <div className={css.leftImageWrapper}>
+                  <div className={css.leftImage}></div>
+                </div>
               </div>
               <div className={css.locationRightWrapper}>
                 <div className={css.locationRightContentWrapper}>

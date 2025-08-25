@@ -6,11 +6,11 @@ export const Footer = () => {
       <div className={css.menuWrapper}>
         <div className={css.menuDetailWrapper}>
           <div className={css.menu}>예약하기</div>
-          <div className={css.menu}>이용안내</div>
-          <div className={css.menu}>
+          <div className={css.menu2}>이용안내</div>
+          <div className={css.menu2}>
             <div className={css.menuText}>공지사항</div>
           </div>
-          <div className={css.menu}>
+          <div className={css.menu2}>
             <div className={css.menuText}>자주하는 문의</div>
           </div>
         </div>

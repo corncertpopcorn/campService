@@ -110,7 +110,8 @@
           gap: 6px;
 
           .text1 {
-            width: 114px;
+            width: 100%;
+            max-width: 114px;
 
             color: #5c5c68;
             font-family: Pretendard;
@@ -173,7 +174,8 @@
 
       .reserveButton1 {
         display: flex;
-        width: 102px;
+        width: 100%;
+        max-width: 102px;
         height: 23px;
         padding: var(--25, 10px) var(--5, 20px);
         justify-content: center;
@@ -195,7 +197,8 @@
       }
       .reserveButton2 {
         display: flex;
-        width: 102px;
+        width: 100%;
+        max-width: 102px;
         height: 23px;
         padding: var(--25, 10px) var(--5, 20px);
         justify-content: center;
@@ -204,7 +207,7 @@
 
         border-radius: 8px;
         border: 1px solid #bee0ff;
-        background: #6189ff;
+        background: #0085ff;
 
         .reserveButtontext2 {
           color: #fff;

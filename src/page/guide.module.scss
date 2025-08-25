@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
-  width: 1920px;
+  width: 100%;
+  max-width: 1920px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -10,7 +11,8 @@
 
   .contentWrapper {
     display: flex;
-    width: 1920px;
+    width: 100%;
+    max-width: 1920px;
     flex-direction: column;
     align-items: flex-start;
 
@@ -27,7 +29,8 @@
 
       .titleWrapper {
         display: flex;
-        width: 1396px;
+        width: 100%;
+        max-width: 1396px;
         flex-direction: column;
         align-items: center;
         gap: 4px;
@@ -55,7 +58,8 @@
 
       .contentBoxWrapper {
         display: flex;
-        width: 1400px;
+        width: 100%;
+        max-width: 1400px;
         flex-direction: column;
         align-items: flex-start;
         gap: 28px;
@@ -85,12 +89,14 @@
 
             .upTitleDetailWrapper {
               display: flex;
-              width: 1140px;
+              width: 100%;
+              max-width: 1140px;
               align-items: center;
               gap: var(--2, 8px);
 
               .upTitle {
-                width: 655px;
+                width: 100%;
+                max-width: 655px;
                 flex-shrink: 0;
 
                 color: #2594fa;
@@ -117,15 +123,20 @@
 
             background: #fff;
 
-            .upContentDetailWrapper {
-              display: flex;
-              width: 1164px;
+            ul {
+              display: block;
+              width: 100%;
+              max-width: 1164px;
               flex-direction: column;
               align-items: flex-start;
               gap: 8px;
 
+              padding-left: 30px;
+              box-sizing: border-box;
+
               .upContent {
-                width: 623px;
+                width: 100%;
+                max-width: 650px;
 
                 color: #32353b;
                 font-family: Pretendard;
@@ -135,25 +146,14 @@
                 line-height: 150%; /* 24px */
 
                 text-align: start;
-              }
 
-              .upContent2 {
-                width: 650px;
-
-                color: #32353b;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%; /* 24px */
-
-                margin-top: -8px;
-                text-align: start;
+                list-style-type: disc;
               }
             }
-
-            .upNotice {
-              width: 1156px;
+            .upNoticeWrapper {
+              display: block;
+              background: #fff;
+              width: auto;
 
               color: #777782;
               font-family: Pretendard;
@@ -162,20 +162,22 @@
               font-weight: 500;
               line-height: 150%; /* 24px */
 
-              color: #777782;
-              font-family: Pretendard;
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 150%;
-              text-decoration-line: underline;
-              text-decoration-style: solid;
-              text-decoration-skip-ink: none;
-              text-decoration-thickness: auto;
-              text-underline-offset: auto;
-              text-underline-position: from-font;
+              .upNotice2 {
+                color: #777782;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: none;
+                text-decoration-thickness: auto;
+                text-underline-offset: auto;
+                text-underline-position: from-font;
 
-              text-align: start;
+                text-align: start;
+              }
             }
           }
         }
@@ -202,12 +204,14 @@
 
             .downTitleDetailWrapper {
               display: flex;
-              width: 1140px;
+              width: 100%;
+              max-width: 1140px;
               align-items: center;
               gap: var(--2, 8px);
 
               .downTitle {
-                width: 655px;
+                width: 100%;
+                max-width: 655px;
                 flex-shrink: 0;
 
                 color: #2594fa;
@@ -234,15 +238,20 @@
 
             background: #fff;
 
-            .downContentDetailWrapper {
-              display: flex;
-              width: 1164px;
+            ul {
+              display: block;
+              width: 100%;
+              max-width: 1164px;
               flex-direction: column;
               align-items: flex-start;
               gap: 8px;
 
+              padding-left: 30px;
+              box-sizing: border-box;
+
               .downContent {
-                width: 623px;
+                width: 100%;
+                max-width: 623px;
 
                 color: #32353b;
                 font-family: Pretendard;
@@ -252,25 +261,15 @@
                 line-height: 150%; /* 24px */
 
                 text-align: start;
-              }
 
-              .downContent2 {
-                width: 623px;
-
-                color: #32353b;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%; /* 24px */
-
-                margin-top: -8px;
-                text-align: start;
+                list-style-type: disc;
               }
             }
 
-            .downNotice {
-              width: 1156px;
+            .downNoticeWrapper {
+              display: block;
+              background: #fff;
+              width: auto;
 
               color: #777782;
               font-family: Pretendard;
@@ -279,20 +278,209 @@
               font-weight: 500;
               line-height: 150%; /* 24px */
 
-              color: #777782;
-              font-family: Pretendard;
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 150%;
-              text-decoration-line: underline;
-              text-decoration-style: solid;
-              text-decoration-skip-ink: none;
-              text-decoration-thickness: auto;
-              text-underline-offset: auto;
-              text-underline-position: from-font;
+              .downNotice2 {
+                color: #777782;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: none;
+                text-decoration-thickness: auto;
+                text-underline-offset: auto;
+                text-underline-position: from-font;
 
-              text-align: start;
+                text-align: start;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    .contentWrapper {
+      .contentDetailWrapper {
+        padding: 80px 0 40px 0;
+        gap: 40px;
+
+        .titleWrapper {
+          .title1 {
+            font-size: 16px;
+          }
+
+          .title2 {
+            font-size: 24px;
+          }
+        }
+
+        .contentBoxWrapper {
+          .upBoxWrapper {
+            .upTitleWrapper {
+              padding: 16px;
+
+              .upTitleDetailWrapper {
+                .upTitle {
+                  font-size: 16px;
+                  line-height: 16px;
+                }
+              }
+            }
+
+            .upContentWrapper {
+              padding: 20px 20px 24px 20px;
+              gap: 24px;
+
+              ul {
+                padding-left: 24px;
+                gap: 6px;
+
+                .upContent {
+                  font-size: 14px;
+                }
+              }
+
+              .upNoticeWrapper {
+                font-size: 14px;
+
+                .upNotice2 {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+
+          .downBoxWrapper {
+            .downTitleWrapper {
+              padding: 16px;
+
+              .downTitleDetailWrapper {
+                .downTitle {
+                  font-size: 16px;
+                  line-height: 16px;
+                }
+              }
+            }
+
+            .downContentWrapper {
+              padding: 20px 20px 24px 20px;
+              gap: 24px;
+
+              ul {
+                padding-left: 24px;
+                gap: 6px;
+
+                .downContent {
+                  font-size: 14px;
+                }
+              }
+
+              .downNoticeWrapper {
+                font-size: 14px;
+
+                .downNotice2 {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-width: 600px;
+    .contentWrapper {
+      .contentDetailWrapper {
+        padding: 60px 0 32px 0;
+        gap: 24px;
+
+        .titleWrapper {
+          .title1 {
+            font-size: 14px;
+          }
+
+          .title2 {
+            font-size: 20px;
+          }
+        }
+
+        .contentBoxWrapper {
+          .upBoxWrapper {
+            .upTitleWrapper {
+              padding: 12px;
+
+              .upTitleDetailWrapper {
+                .upTitle {
+                  font-size: 14px;
+                  line-height: 14px;
+                }
+              }
+            }
+
+            .upContentWrapper {
+              padding: 16px 16px 20px 16px;
+              gap: 16px;
+
+              ul {
+                padding-left: 20px;
+                gap: 4px;
+
+                .upContent {
+                  font-size: 12px;
+                }
+              }
+
+              .upNoticeWrapper {
+                font-size: 12px;
+
+                .upNotice2 {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+
+          .downBoxWrapper {
+            .downTitleWrapper {
+              padding: 12px;
+
+              .downTitleDetailWrapper {
+                .downTitle {
+                  font-size: 14px;
+                  line-height: 14px;
+                }
+              }
+            }
+
+            .downContentWrapper {
+              padding: 16px 16px 20px 16px;
+              gap: 16px;
+
+              ul {
+                padding-left: 20px;
+                gap: 4px;
+
+                .downContent {
+                  font-size: 12px;
+                }
+              }
+
+              .downNoticeWrapper {
+                font-size: 12px;
+
+                .downNotice2 {
+                  font-size: 12px;
+                }
+              }
             }
           }
         }

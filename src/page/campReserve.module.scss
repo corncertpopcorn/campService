@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
-  width: 1920px;
+  width: 100%;
+  max-width: 1920px;
   padding-bottom: 31px;
   flex-direction: column;
   align-items: flex-start;
@@ -10,7 +11,8 @@
 
   .contentWrapper {
     display: flex;
-    width: 1920px;
+    width: 100%;
+    max-width: 1920px;
     flex-direction: column;
     align-items: flex-start;
 
@@ -27,7 +29,8 @@
 
       .titleWrapper {
         display: flex;
-        width: 1396px;
+        width: 100%;
+        max-width: 1396px;
         flex-direction: column;
         align-items: center;
         gap: 4px;
@@ -61,7 +64,8 @@
 
         .reserveTitleWrapper {
           display: flex;
-          width: 1400px;
+          width: 100%;
+          max-width: 1400px;
           justify-content: center;
           align-items: center;
           gap: 24px;
@@ -71,7 +75,8 @@
 
           .reserveImageWrapper {
             display: flex;
-            width: 619px;
+            width: 100%;
+            max-width: 619px;
             height: 212px;
             align-items: center;
             gap: 12px;
@@ -137,27 +142,23 @@
               }
             }
 
-            .textDetail {
-              color: #646464;
-              font-family: Pretendard;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 150%; /* 21px */
+            ul {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              flex: 1 0 0;
 
-              text-align: start;
-            }
+              .textDetail {
+                color: #646464;
+                font-family: Pretendard;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%; /* 21px */
 
-            .textDetail2 {
-              color: #646464;
-              font-family: Pretendard;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 150%; /* 21px */
-
-              text-align: start;
-              margin-top: -16px;
+                text-align: start;
+              }
             }
 
             .infoWrapper {
@@ -181,7 +182,8 @@
                   gap: 6px;
 
                   .infoText1 {
-                    width: 72px;
+                    width: 100%;
+                    max-width: 72px;
 
                     color: #5c5c68;
                     font-family: Pretendard;
@@ -215,7 +217,7 @@
 
           .dateWrapper {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 24px;
             align-self: stretch;
 
@@ -700,7 +702,7 @@
                 }
               }
 
-              .dateWrapper {
+              .dateWrapper2 {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -722,9 +724,12 @@
                   align-items: flex-start;
                   gap: 4px;
 
+                  flex: 1 0 0;
+
                   .dateDetailWrapper2 {
                     display: flex;
-                    width: 644px;
+                    width: 100%;
+                    max-width: 644px;
                     height: 34px;
                     padding: 4px 12px;
                     justify-content: space-between;
@@ -962,6 +967,8 @@
               border: 1px solid #eee;
               background: #fff;
 
+              flex: 1 0 0;
+
               .calendarTitle {
                 align-self: stretch;
 
@@ -974,9 +981,8 @@
               }
 
               .calendarImage {
-                width: 515.438px;
-                flex: 1 0 0;
-                aspect-ratio: 116/115;
+                width: 100%;
+                height: 100%;
 
                 background: url("../image/image25.png") lightgray 50% / cover
                   no-repeat;
@@ -992,6 +998,10 @@
 
                 border-radius: 6px;
                 background: #f9fcff;
+
+                width: 100%;
+
+                box-sizing: border-box;
 
                 .calendarExplain1 {
                   color: #1f84ee;
@@ -1016,7 +1026,7 @@
 
           .noticeWrapper {
             display: flex;
-            width: 1400px;
+            align-self: stretch;
             flex-direction: column;
             align-items: flex-start;
             gap: 24px;
@@ -1084,11 +1094,10 @@
                   text-align: start;
                 }
 
-                .notice1DetailWrapper {
+                ul {
                   display: flex;
                   padding: 8px 12px;
                   align-items: start;
-                  gap: 6px;
                   align-self: stretch;
 
                   border-radius: 4px;
@@ -1098,17 +1107,6 @@
                   flex-direction: column;
 
                   .content1 {
-                    flex: 1 0 0;
-
-                    color: #222;
-                    font-family: Pretendard;
-                    font-size: 12px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 200%; /* 24px */
-                  }
-
-                  .content12 {
                     flex: 1 0 0;
 
                     color: #222;
@@ -1128,9 +1126,9 @@
 
                 .agreeButton {
                   display: flex;
-                  width: 18px;
+                  width: 100%;
+                  max-width: 18px;
                   height: 18px;
-                  padding: 4px 12px;
                   align-items: center;
                   gap: 6px;
 
@@ -1218,11 +1216,10 @@
                   text-align: start;
                 }
 
-                .notice2DetailWrapper {
+                ul {
                   display: flex;
                   padding: 8px 12px;
                   align-items: start;
-                  gap: 6px;
                   align-self: stretch;
 
                   border-radius: 4px;
@@ -1241,19 +1238,6 @@
                     font-weight: 500;
                     line-height: 200%; /* 24px */
                   }
-
-                  .content22 {
-                    flex: 1 0 0;
-
-                    color: #222;
-                    font-family: Pretendard;
-                    font-size: 12px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 200%; /* 24px */
-
-                    margin-top: -6px;
-                  }
                 }
               }
 
@@ -1264,9 +1248,9 @@
 
                 .agreeButton {
                   display: flex;
-                  width: 18px;
+                  width: 100%;
+                  max-width: 18px;
                   height: 18px;
-                  padding: 4px 12px;
                   align-items: center;
                   gap: 6px;
 
@@ -1289,7 +1273,8 @@
 
           .previewWrapper {
             display: flex;
-            width: 1400px;
+            width: 100%;
+            max-width: 1400px;
             padding: 20px 22px;
             flex-direction: column;
             align-items: flex-start;
@@ -1346,7 +1331,8 @@
                     gap: 6px;
 
                     .text1 {
-                      width: 82px;
+                      width: 100%;
+                      max-width: 82px;
 
                       color: #424242;
                       font-family: Pretendard;
@@ -1374,7 +1360,8 @@
                     gap: 6px;
 
                     .text1 {
-                      width: 82px;
+                      width: 100%;
+                      max-width: 82px;
 
                       color: #424242;
                       font-family: Pretendard;
@@ -1402,7 +1389,8 @@
                     gap: 6px;
 
                     .text1 {
-                      width: 82px;
+                      width: 100%;
+                      max-width: 82px;
 
                       color: #424242;
                       font-family: Pretendard;
@@ -1430,7 +1418,8 @@
                     gap: 6px;
 
                     .text1 {
-                      width: 82px;
+                      width: 100%;
+                      max-width: 82px;
 
                       color: #424242;
                       font-family: Pretendard;
