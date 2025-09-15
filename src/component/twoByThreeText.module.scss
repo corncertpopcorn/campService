@@ -1,0 +1,127 @@
+.twoByThreeTextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+
+  .textDetailWrapper1 {
+    display: flex;
+    align-items: center;
+
+    .leftText1 {
+      width: 114px;
+      color: #505050;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: start;
+    }
+
+    .rightText1 {
+      color: #505050;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 400;
+
+      flex: 1 1;
+      text-align: start;
+    }
+  }
+
+  .textDetailWrapper2 {
+    display: flex;
+    align-items: center;
+
+    .leftText2 {
+      width: 114px;
+      color: #505050;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: start;
+    }
+
+    .rightText2 {
+      color: #505050;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 400;
+
+      flex: 1 1;
+      text-align: start;
+    }
+  }
+
+  .textDetailWrapper3 {
+    display: flex;
+    align-items: center;
+
+    .leftText3 {
+      width: 114px;
+      color: #0085ff;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: start;
+    }
+
+    .rightText3 {
+      color: #424242;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 400;
+
+      flex: 1 1;
+      text-align: start;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .twoByThreeTextWrapper {
+    gap: 10px;
+
+    .textDetailWrapper1 {
+      gap: 4px;
+
+      .leftText1 {
+        font-size: 12px;
+        font-weight: 600px;
+      }
+
+      .rightText1 {
+        font-size: 12px;
+        font-weight: 400px;
+      }
+    }
+
+    .textDetailWrapper2 {
+      gap: 4px;
+
+      .leftText2 {
+        font-size: 12px;
+        font-weight: 600px;
+      }
+
+      .rightText2 {
+        font-size: 12px;
+        font-weight: 400px;
+      }
+    }
+
+    .textDetailWrapper3 {
+      gap: 4px;
+
+      .leftText3 {
+        font-size: 12px;
+        font-weight: 600px;
+      }
+
+      .rightText3 {
+        font-size: 12px;
+        font-weight: 400px;
+      }
+    }
+  }
+}

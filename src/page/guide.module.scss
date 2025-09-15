@@ -1,486 +1,152 @@
 .wrapper {
-  display: flex;
-  width: 100%;
-  max-width: 1920px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 7px;
-
-  background: #fff;
+  padding-top: 98px;
 
   .contentWrapper {
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
-    width: 100%;
-    max-width: 1920px;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 42px;
+    padding: 124px 12svw;
+    width: 100%;
 
-    .contentDetailWrapper {
-      display: flex;
-      padding: 142px 0 64px 0;
-      flex-direction: column;
-      justify-content: center;
+    .titleWrapper {
       align-items: center;
-      gap: 64px;
-      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      font-family: Pretendard;
+      gap: 12px;
+      line-height: 150%;
+      text-align: center;
+      width: 100%;
 
+      .title1 {
+        color: #1f84ee;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .title2 {
+        color: #222;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 120%;
+      }
+
+      .title3 {
+        color: #4d4d4f;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .upBoxWrapper {
+      align-items: flex-start;
       background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      width: 100%;
+
+      .upTitle {
+        background: #f9fcff;
+        border-bottom: 1px solid #e8e8e8;
+        box-sizing: border-box;
+        color: #0085ff;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 18px;
+        padding: 18px;
+        width: 100%;
+        text-align: start;
+      }
+
+      .upContentWrapper {
+        box-sizing: border-box;
+        color: #424242;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 170%;
+        padding: 18px;
+        width: 100%;
+
+        ul {
+          display: block;
+          width: 100%;
+          max-width: 1164px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+
+          box-sizing: border-box;
+
+          .upContent {
+            width: 100%;
+            max-width: 650px;
+
+            color: #32353b;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 170%; /* 24px */
+
+            text-align: start;
+
+            list-style-type: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    .contentWrapper {
+      padding: 42px 16px;
+      gap: 28px;
 
       .titleWrapper {
-        display: flex;
-        width: 100%;
-        max-width: 1396px;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
+        gap: 8px;
 
         .title1 {
-          color: #556f87;
-          text-align: center;
-          font-family: Pretendard;
-          font-size: 18px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 150%; /* 27px */
+          font-size: 14px;
+          line-height: normal;
         }
 
         .title2 {
-          color: #1f84ee;
-          text-align: center;
-          font-family: Pretendard;
-          font-size: 32px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 120%; /* 38.4px */
+          font-size: 18px;
+          line-height: normal;
+        }
+        .title3 {
+          font-size: 12px;
+          line-height: 140%;
         }
       }
-
-      .contentBoxWrapper {
-        display: flex;
-        width: 100%;
-        max-width: 1400px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-
-        border-radius: 8px;
-        background: #fff;
-
-        .upBoxWrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          align-self: stretch;
-
-          border-radius: 4px;
-          border: 1px solid #f2f4ff;
-
-          .upTitleWrapper {
-            display: flex;
-            padding: 18px;
-            justify-content: space-between;
-            align-items: center;
-            align-self: stretch;
-
-            border-radius: 4px 4px 0 0;
-            border-bottom: 1px solid #f4faff;
-            background: #f4faff;
-
-            .upTitleDetailWrapper {
-              display: flex;
-              width: 100%;
-              max-width: 1140px;
-              align-items: center;
-              gap: var(--2, 8px);
-
-              .upTitle {
-                width: 100%;
-                max-width: 655px;
-                flex-shrink: 0;
-
-                color: #2594fa;
-                leading-trim: both;
-                text-edge: cap;
-                font-family: Pretendard;
-                font-size: 18px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 18px; /* 100% */
-
-                text-align: start;
-              }
-            }
-          }
-
-          .upContentWrapper {
-            display: flex;
-            padding: 24px 24px 32px 24px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 32px;
-            align-self: stretch;
-
-            background: #fff;
-
-            ul {
-              display: block;
-              width: 100%;
-              max-width: 1164px;
-              flex-direction: column;
-              align-items: flex-start;
-              gap: 8px;
-
-              padding-left: 30px;
-              box-sizing: border-box;
-
-              .upContent {
-                width: 100%;
-                max-width: 650px;
-
-                color: #32353b;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%; /* 24px */
-
-                text-align: start;
-
-                list-style-type: disc;
-              }
-            }
-            .upNoticeWrapper {
-              display: block;
-              background: #fff;
-              width: auto;
-
-              color: #777782;
-              font-family: Pretendard;
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: 150%; /* 24px */
-
-              .upNotice2 {
-                color: #777782;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 150%;
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip-ink: none;
-                text-decoration-thickness: auto;
-                text-underline-offset: auto;
-                text-underline-position: from-font;
-
-                text-align: start;
-              }
-            }
-          }
+      .upBoxWrapper {
+        .upTitle {
+          font-size: 14px;
+          padding: 12px;
         }
 
-        .downBoxWrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          align-self: stretch;
+        .upContentWrapper {
+          padding: 12px;
+          line-height: 160%;
+          font-size: 12px;
 
-          border-radius: 4px;
-          border: 1px solid #f2f4ff;
+          ul {
+            gap: 4px;
 
-          .downTitleWrapper {
-            display: flex;
-            padding: 18px;
-            justify-content: space-between;
-            align-items: center;
-            align-self: stretch;
-
-            border-radius: 4px 4px 0 0;
-            border-bottom: 1px solid #f4faff;
-            background: #f4faff;
-
-            .downTitleDetailWrapper {
-              display: flex;
-              width: 100%;
-              max-width: 1140px;
-              align-items: center;
-              gap: var(--2, 8px);
-
-              .downTitle {
-                width: 100%;
-                max-width: 655px;
-                flex-shrink: 0;
-
-                color: #2594fa;
-                leading-trim: both;
-                text-edge: cap;
-                font-family: Pretendard;
-                font-size: 18px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 18px; /* 100% */
-
-                text-align: start;
-              }
-            }
-          }
-
-          .downContentWrapper {
-            display: flex;
-            padding: 24px 24px 32px 24px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 32px;
-            align-self: stretch;
-
-            background: #fff;
-
-            ul {
-              display: block;
-              width: 100%;
-              max-width: 1164px;
-              flex-direction: column;
-              align-items: flex-start;
-              gap: 8px;
-
-              padding-left: 30px;
-              box-sizing: border-box;
-
-              .downContent {
-                width: 100%;
-                max-width: 623px;
-
-                color: #32353b;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%; /* 24px */
-
-                text-align: start;
-
-                list-style-type: disc;
-              }
-            }
-
-            .downNoticeWrapper {
-              display: block;
-              background: #fff;
-              width: auto;
-
-              color: #777782;
-              font-family: Pretendard;
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: 150%; /* 24px */
-
-              .downNotice2 {
-                color: #777782;
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 150%;
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip-ink: none;
-                text-decoration-thickness: auto;
-                text-underline-offset: auto;
-                text-underline-position: from-font;
-
-                text-align: start;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 1024px) {
-  .wrapper {
-    .contentWrapper {
-      .contentDetailWrapper {
-        padding: 80px 0 40px 0;
-        gap: 40px;
-
-        .titleWrapper {
-          .title1 {
-            font-size: 16px;
-          }
-
-          .title2 {
-            font-size: 24px;
-          }
-        }
-
-        .contentBoxWrapper {
-          .upBoxWrapper {
-            .upTitleWrapper {
-              padding: 16px;
-
-              .upTitleDetailWrapper {
-                .upTitle {
-                  font-size: 16px;
-                  line-height: 16px;
-                }
-              }
-            }
-
-            .upContentWrapper {
-              padding: 20px 20px 24px 20px;
-              gap: 24px;
-
-              ul {
-                padding-left: 24px;
-                gap: 6px;
-
-                .upContent {
-                  font-size: 14px;
-                }
-              }
-
-              .upNoticeWrapper {
-                font-size: 14px;
-
-                .upNotice2 {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-
-          .downBoxWrapper {
-            .downTitleWrapper {
-              padding: 16px;
-
-              .downTitleDetailWrapper {
-                .downTitle {
-                  font-size: 16px;
-                  line-height: 16px;
-                }
-              }
-            }
-
-            .downContentWrapper {
-              padding: 20px 20px 24px 20px;
-              gap: 24px;
-
-              ul {
-                padding-left: 24px;
-                gap: 6px;
-
-                .downContent {
-                  font-size: 14px;
-                }
-              }
-
-              .downNoticeWrapper {
-                font-size: 14px;
-
-                .downNotice2 {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .wrapper {
-    min-width: 600px;
-    .contentWrapper {
-      .contentDetailWrapper {
-        padding: 60px 0 32px 0;
-        gap: 24px;
-
-        .titleWrapper {
-          .title1 {
-            font-size: 14px;
-          }
-
-          .title2 {
-            font-size: 20px;
-          }
-        }
-
-        .contentBoxWrapper {
-          .upBoxWrapper {
-            .upTitleWrapper {
-              padding: 12px;
-
-              .upTitleDetailWrapper {
-                .upTitle {
-                  font-size: 14px;
-                  line-height: 14px;
-                }
-              }
-            }
-
-            .upContentWrapper {
-              padding: 16px 16px 20px 16px;
-              gap: 16px;
-
-              ul {
-                padding-left: 20px;
-                gap: 4px;
-
-                .upContent {
-                  font-size: 12px;
-                }
-              }
-
-              .upNoticeWrapper {
-                font-size: 12px;
-
-                .upNotice2 {
-                  font-size: 12px;
-                }
-              }
-            }
-          }
-
-          .downBoxWrapper {
-            .downTitleWrapper {
-              padding: 12px;
-
-              .downTitleDetailWrapper {
-                .downTitle {
-                  font-size: 14px;
-                  line-height: 14px;
-                }
-              }
-            }
-
-            .downContentWrapper {
-              padding: 16px 16px 20px 16px;
-              gap: 16px;
-
-              ul {
-                padding-left: 20px;
-                gap: 4px;
-
-                .downContent {
-                  font-size: 12px;
-                }
-              }
-
-              .downNoticeWrapper {
-                font-size: 12px;
-
-                .downNotice2 {
-                  font-size: 12px;
-                }
-              }
+            .upContent {
+              font-size: 12px;
+              line-height: 160%;
             }
           }
         }

@@ -10,7 +10,7 @@ import { Notice } from "./page/notice";
 function App() {
   return (
     <div className="App">
-      <Notice />
+      <Main />
     </div>
   );
 }

@@ -1,280 +1,72 @@
 .wrapper {
-  display: flex;
-  width: 100%;
-  max-width: 1920px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
+  padding-top: 98px;
 
-  background: #fff;
-
-  .campWrapper {
+  .contentWrapper {
     display: flex;
-    width: 100%;
-    max-width: 1920px;
+    padding: 124px 12svw;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 42px;
+    box-sizing: border-box;
+    width: 100%;
 
-    .contentWrapper {
+    .titleWrapper {
       display: flex;
-      padding: 142px 0;
+      width: 100%;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      gap: 64px;
-      align-self: stretch;
+      line-height: 150%;
+      gap: 12px;
+      font-family: Pretendard;
+      text-align: center;
 
-      background: #fff;
-
-      .titleWrapper {
-        display: flex;
-        width: 100%;
-        max-width: 1396px;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-
-        .titleName1 {
-          color: #556f87;
-          text-align: center;
-          font-family: Pretendard;
-          font-size: 18px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 150%; /* 27px */
-        }
-
-        .titleName2 {
-          color: #1f84ee;
-          text-align: center;
-          font-family: Pretendard;
-          font-size: 32px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 120%; /* 38.4px */
-        }
+      .titleName1 {
+        color: #1f84ee;
+        font-size: 18px;
+        font-weight: 700;
       }
 
-      .contentDetailWrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-
-        align-self: stretch;
-
-        .searchWrapper {
-          display: flex;
-          width: 100%;
-          max-width: 1400px;
-          height: 98px;
-          padding: 20px 22px;
-          justify-content: space-between;
-          align-items: center;
-
-          border-radius: 8px;
-          border: 1px solid #eee;
-          background: #fff;
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-
-          box-sizing: border-box;
-
-          .dateWrapper {
-            display: flex;
-            width: 100%;
-            max-width: 396px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-            flex-shrink: 0;
-
-            .dateTextWrapper {
-              display: flex;
-              align-items: center;
-              gap: 4px;
-
-              .dateText {
-                color: #424242;
-                font-family: Pretendard;
-                font-size: 12px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 100%; /* 12px */
-              }
-            }
-
-            .dateDetailWrapper {
-              display: flex;
-              align-items: flex-start;
-              gap: 12px;
-              align-self: stretch;
-
-              .startDateWrapper {
-                display: flex;
-                height: 32px;
-                padding: 4px 12px;
-                justify-content: space-between;
-                align-items: center;
-                flex: 1 0 0;
-
-                border-radius: 4px;
-                border: 1px solid #ddd;
-                background: #fff;
-
-                .startTextWrapper {
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-
-                  .startText {
-                    color: #5c5c68;
-                    font-family: Pretendard;
-                    font-size: 12px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 150%; /* 18px */
-                  }
-
-                  .startDate {
-                    color: #424242;
-                    font-family: Pretendard;
-                    font-size: 12px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 150%; /* 18px */
-                  }
-                }
-              }
-
-              .endDateWrapper {
-                display: flex;
-                height: 32px;
-                padding: 4px 12px;
-                justify-content: space-between;
-                align-items: center;
-                flex: 1 0 0;
-
-                border-radius: 4px;
-                border: 1px solid #ddd;
-                background: #fff;
-
-                .endTextWrapper {
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-
-                  .endText {
-                    color: #5c5c68;
-                    font-family: Pretendard;
-                    font-size: 12px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 150%; /* 18px */
-                  }
-
-                  .endDate {
-                    color: #424242;
-                    font-family: Pretendard;
-                    font-size: 12px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 150%; /* 18px */
-                  }
-                }
-              }
-            }
-          }
-
-          .reserveButtonWrapper {
-            display: flex;
-            width: 100%;
-            max-width: 378px;
-            align-items: center;
-            gap: 18px;
-            flex-shrink: 0;
-            //align-self: stretch;
-
-            .leftButton {
-              display: flex;
-
-              height: 38px;
-              padding: var(--25, 10px) var(--5, 20px);
-              justify-content: center;
-              align-items: center;
-              gap: var(--2, 8px);
-              flex: 1 0 0;
-              align-self: stretch;
-
-              border-radius: 8px;
-              border: 1px solid #99ceff;
-              background: #fff;
-
-              .leftText {
-                color: #0085ff;
-                font-family: Pretendard;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 800;
-                line-height: 150%; /* 21px */
-              }
-            }
-
-            .rightButton {
-              display: flex;
-              height: 38px;
-              padding: var(--25, 10px) var(--5, 20px);
-              justify-content: center;
-              align-items: center;
-              gap: var(--2, 8px);
-              flex: 1 0 0;
-
-              border-radius: 10px;
-              background: linear-gradient(90deg, #6189ff 0%, #61a5ff 100%);
-
-              .rightText {
-                color: var(--white, var(--white, #fff));
-                text-align: center;
-                font-family: Pretendard;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 800;
-                line-height: 150%; /* 21px */
-              }
-            }
-          }
-        }
-
-        .campDetailWrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 14px;
-
-          //align-self: stretch;
-          width: 100%;
-          max-width: 1400px;
-
-          .reserveCampWrapper {
-            display: flex;
-            width: 100%;
-            max-width: 1400px;
-            align-items: flex-start;
-            gap: 14px;
-          }
-
-          .cantReserveWrapper {
-            display: flex;
-            width: 100%;
-            max-width: 1400px;
-            align-items: flex-start;
-            gap: 14px;
-          }
-        }
+      .titleName2 {
+        color: #222;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 120%; /* 38.4px */
       }
     }
 
-    .Wrapper {
+    .reserveCampWrapper {
+      display: flex;
+      box-sizing: border-box;
+      width: 100%;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 24px;
+    }
+
+    .cantReserveWrapper {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 24px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    .contentWrapper {
+      padding: 40px 0;
+      gap: 40px;
+
+      .reserveCampWrapper {
+        flex-direction: column;
+      }
+
+      .cantReserveWrapper {
+        flex-direction: column;
+      }
     }
   }
 }

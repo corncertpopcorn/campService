@@ -4,15 +4,13 @@ export const Footer = () => {
   return (
     <div className={css.wrapper}>
       <div className={css.menuWrapper}>
-        <div className={css.menuDetailWrapper}>
-          <div className={css.menu}>예약하기</div>
-          <div className={css.menu2}>이용안내</div>
-          <div className={css.menu2}>
-            <div className={css.menuText}>공지사항</div>
-          </div>
-          <div className={css.menu2}>
-            <div className={css.menuText}>자주하는 문의</div>
-          </div>
+        <div className={css.menu}>메인</div>
+        <div className={css.menu2}>캠핑장</div>
+        <div className={css.menu2}>
+          <div className={css.menuText}>이용안내</div>
+        </div>
+        <div className={css.menu2}>
+          <div className={css.menuText}>공지사항</div>
         </div>
       </div>
       <div className={css.contentWrapper}>

@@ -1,53 +1,28 @@
 import css from "./cantReserveList.module.scss";
+import { TwoByFourText } from "./twoByFourText";
 
 export const CantReserveList = () => {
   return (
     <div className={css.wrapper}>
       <div className={css.imageWrapper}>
-        <div className={css.leftImage}>
-          <div className={css.leftImageDetail}></div>
-        </div>
-        <div className={css.rightImage}>
-          <div className={css.rightImageDetail}></div>
-        </div>
+        <div className={css.leftImage}></div>
+        <div className={css.rightImage}></div>
       </div>
-      <div className={css.textWrapper}>
-        <div className={css.titleWrapper}>
-          <div className={css.title}>A-1 사이트 / 파쇄석</div>
-          <div className={css.canReserve}>예약가능</div>
-        </div>
-        <div className={css.contentWrapper}>
-          <div className={css.contentDetailWrapper}>
-            <div className={css.contentTextWrapper}>
-              <div className={css.text1}>사이트 크기 </div>
-              <div className={css.text2}>8x8.5M</div>
-            </div>
-            <div className={css.contentTextWrapper}>
-              <div className={css.text1}>부대시설</div>
-              <div className={css.text2}>개별화장실 및 샤워실</div>
-            </div>
-            <div className={css.contentTextWrapper}>
-              <div className={css.text1}>허용 인원</div>
-              <div className={css.text2}>4인 ~ 6인</div>
-            </div>
-            <div className={css.contentTextWrapper}>
-              <div className={css.text1}>인원 추가 금액</div>
-              <div className={css.text2}>
-                유아 2,000원 / 소인 4,000원 / 대인 12,000원
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className={css.titleWrapper}>
+        <div className={css.title}>D-5 프리미엄 (오픈예정)</div>
+        <div className={css.canReserve}>예약불가</div>
       </div>
+      <div className={css.contentWrapper}>
+        <TwoByFourText />
+      </div>
+
       <div className={css.reserveWrapper}>
         <div className={css.reserveLeftWrapper}>
-          <div className={css.reserveText1}>45,000 ~ 75,000원</div>
-          <div className={css.reserveText2}>4인 기준 1박 예약 시</div>
+          <div className={css.reserveText1}>60,000 ~ 75,000원</div>
+          <div className={css.reserveText2}>1박 요금</div>
         </div>
         <div className={css.reserveRightWrapper}>
-          <div className={css.reserveButton}>
-            <div className={css.reserveButtontext}>9월 예약 오픈 예정</div>
-          </div>
+          <button className={css.reserveButton}>추후 공지 예정</button>
         </div>
       </div>
     </div>

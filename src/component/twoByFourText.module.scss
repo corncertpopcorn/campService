@@ -1,0 +1,43 @@
+.twoByFourTextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+
+  .contentTextWrapper {
+    display: flex;
+    align-items: center;
+
+    .text1 {
+      color: #505050;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 600;
+      width: 114px;
+      text-align: start;
+    }
+    .text2 {
+      color: #505050;
+      flex: 1 1;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .twoByFourTextWrapper {
+    gap: 6px;
+    .contentTextWrapper {
+      .text1 {
+        font-size: 12px;
+      }
+      .text2 {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -3,197 +3,133 @@
   padding: 20px 22px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
-  flex: 1 0 0;
-
-  border-radius: 8px;
-  border: 1px solid #eee;
+  gap: 16px;
+  flex: 1 1;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid #dcdcdc;
   background: #fff;
+  width: 100%;
 
   .imageWrapper {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    align-self: stretch;
+    width: 100%;
 
     .leftImage {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      flex: 1 0 0;
-
-      .leftImageDetail {
-        height: 251px;
-        flex: 1 0 0;
-
-        border-radius: 6px;
-        background: url("../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg")
-          lightgray 50% / cover no-repeat;
-      }
+      aspect-ratio: 16 / 11;
+      flex: 1 1;
+      border-radius: 12px;
+      background: url("../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg")
+        lightgray 50% / cover no-repeat;
+      max-width: calc(50% - 7px);
+      object-fit: cover;
     }
 
     .rightImage {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      flex: 1 0 0;
-
-      .rightImageDetail {
-        height: 251px;
-        flex: 1 0 0;
-
-        border-radius: 6px;
-        background: url("../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg")
-          lightgray 50% / cover no-repeat;
-      }
+      aspect-ratio: 16 / 11;
+      flex: 1 1;
+      border-radius: 12px;
+      background: url("../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg")
+        lightgray 50% / cover no-repeat;
+      max-width: calc(50% - 7px);
+      object-fit: cover;
     }
   }
-  .textWrapper {
+
+  .titleWrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 8px;
-    align-self: stretch;
-
-    .titleWrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      align-self: stretch;
-
-      .title {
-        color: #1f84ee;
-        font-family: Pretendard;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 120%; /* 21.6px */
-      }
-
-      .canReserve {
-        display: flex;
-        padding: 4px 12px;
-        align-items: flex-start;
-        gap: 6px;
-        align-self: stretch;
-
-        border-radius: 4px;
-        background: #f9fcff;
-
-        color: #2594fa;
-        font-family: Pretendard;
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 120%; /* 12px */
-      }
-    }
-    .contentWrapper {
-      display: flex;
-      padding-top: 12px;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-      align-self: stretch;
-
-      border-top: 1px solid #eee;
-
-      .contentDetailWrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .contentTextWrapper {
-          display: flex;
-          align-items: flex-start;
-          gap: 6px;
-
-          .text1 {
-            width: 100%;
-            max-width: 114px;
-
-            color: #5c5c68;
-            font-family: Pretendard;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 150%; /* 18px */
-
-            text-align: start;
-          }
-          .text2 {
-            color: #5c5c68;
-            font-family: Pretendard;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%; /* 18px */
-          }
-        }
-      }
-    }
-  }
-  .reserveWrapper {
-    display: flex;
-    padding: 12px 14px;
     justify-content: space-between;
     align-items: center;
-    align-self: stretch;
+    width: 100%;
+    box-sizing: border-box;
 
+    .title {
+      color: #1f84ee;
+      font-family: Pretendard;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .canReserve {
+      display: inline-block;
+      padding-top: 4px;
+      padding: 2px 12px 4px;
+      text-align: center;
+      white-space: nowrap;
+      border-radius: 4px;
+      background: #b7b7b7;
+
+      color: #fff;
+      font-family: Pretendard;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 150%; /* 12px */
+    }
+  }
+  .contentWrapper {
+    display: flex;
+    padding-top: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    box-sizing: border-box;
+    border-top: 1px solid #dcdcdc;
+    width: 100%;
+  }
+
+  .reserveWrapper {
+    display: flex;
+    padding: 20px 18px;
+    justify-content: space-between;
+    align-items: stretch;
+    box-sizing: border-box;
     border-radius: 12px;
     background: #f9fcff;
+    width: 100%;
 
     .reserveLeftWrapper {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
+      justify-content: center;
+      gap: 6px;
 
       .reserveText1 {
         color: #1f84ee;
         font-family: Pretendard;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 100%; /* 16px */
+        font-size: 18px;
+        font-weight: 800;
       }
       .reserveText2 {
         color: #999;
         font-family: Pretendard;
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%; /* 15px */
+        font-size: 14px;
+        text-align: start;
       }
     }
     .reserveRightWrapper {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 12px;
 
       .reserveButton {
+        min-width: 142px;
+        height: auto;
+        background: #b7b7b7;
+        color: #fff;
         display: flex;
-        width: 100%;
-        max-width: 142px;
-        height: 23px;
         padding: var(--25, 10px) var(--5, 20px);
         justify-content: center;
         align-items: center;
         gap: var(--2, 8px);
-
-        border-radius: 8px;
-        border: 1px solid #bee0ff;
-        background: #b7b7b7;
-
-        .reserveButtontext {
-          color: #fff;
-          font-family: Pretendard;
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 150%; /* 21px */
-        }
+        cursor: pointer;
+        border-radius: 6px;
+        font-family: Pretendard;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 150%; /* 21px */
+        border: none;
       }
     }
   }
