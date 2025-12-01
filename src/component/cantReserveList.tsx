@@ -12,10 +12,7 @@ export const CantReserveList = () => {
         <div className={css.title}>D-5 프리미엄 (오픈예정)</div>
         <div className={css.canReserve}>예약불가</div>
       </div>
-      <div className={css.contentWrapper}>
-        <TwoByFourText />
-      </div>
-
+      <TwoByFourText />
       <div className={css.reserveWrapper}>
         <div className={css.reserveLeftWrapper}>
           <div className={css.reserveText1}>60,000 ~ 75,000원</div>

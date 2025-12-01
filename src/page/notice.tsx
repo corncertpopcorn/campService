@@ -1,8 +1,33 @@
+import { useEffect, useState } from "react";
 import { Footer } from "../component/footer";
 import { Navbar } from "../component/navbar";
 import css from "./notice.module.scss";
+import axios from "axios";
+import apiService from "../util/apiService";
+
+interface NoticeData {
+  id: number;
+  date: string;
+  title: string;
+  content: string;
+  view: number;
+}
 
 export const Notice = () => {
+  const [noticeData, setNoticeData] = useState<NoticeData[] | null>(null);
+
+  useEffect(() => {
+    try {
+      // /admin/notice/list?page=0&view=40
+      const fetchNoticeData = async () => {
+        const res = await apiService.get<any>(`/notice/list?page=0&view=40`);
+        setNoticeData(res.data);
+      };
+      fetchNoticeData();
+    } catch (error) {
+      console.error(" 데이터 로딩 실패:", error);
+    }
+  }, []);
   return (
     <>
       <Navbar />
@@ -25,20 +50,18 @@ export const Notice = () => {
                   <th className={css.theadTitle4}>조회수</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td className={css.noticeTitle1}>24</td>
-                  <td className={css.noticeTitle2}>2023-04-17</td>
-                  <td className={css.noticeTitle3}>홈페이지 예약하기 안내</td>
-                  <td className={css.noticeTitle4}>3611</td>
-                </tr>
-                <tr>
-                  <td className={css.noticeTitle1}>39</td>
-                  <td className={css.noticeTitle2}>2025-09-13</td>
-                  <td className={css.noticeTitle3}>이용약관 및 환불규정</td>
-                  <td className={css.noticeTitle4}>6</td>
-                </tr>
-              </tbody>
+              {noticeData?.map((item) => (
+                <tbody>
+                  <tr>
+                    <td className={css.noticeTitle1}>{item.id}</td>
+                    <td className={css.noticeTitle2}>
+                      {item.date.split("T")[0]}
+                    </td>
+                    <td className={css.noticeTitle3}>{item.title}</td>
+                    <td className={css.noticeTitle4}>{item.view}</td>
+                  </tr>
+                </tbody>
+              ))}
             </table>
           </div>
         </div>

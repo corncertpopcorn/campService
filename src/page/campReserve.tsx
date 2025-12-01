@@ -1,8 +1,61 @@
+import { useSearchParams } from "react-router-dom";
+import { CustomCalendar } from "../component/customCalendar";
 import { Footer } from "../component/footer";
 import { Navbar } from "../component/navbar";
 import css from "./campReserve.module.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import apiService from "../util/apiService";
 
 export const CampReserve = () => {
+  const [searchParams] = useSearchParams();
+  const pageIdx = Number(searchParams.get("idx"));
+  const [reserveData, setReserveData] = useState<any | null>(null);
+
+  useEffect(() => {
+    const fetchReserveData = async () => {
+      try {
+        const res = await apiService.get<any>(
+          `/reservation/list?idx=${pageIdx}`
+        );
+        setReserveData(res.data);
+      } catch (error) {
+        console.error(" 데이터 로딩 실패:", error);
+      }
+    };
+    fetchReserveData();
+  }, [pageIdx]);
+
+  const upText = `  예약 건은 양도가 절대 불가합니다! 유의해주세요!\n
+  1.예약은 1인 1사이트(최대 인원 4인) 예약 가능합니다.(동일인 2개 사이트 예약 시 취소됨)\n
+  2.입금자와 예약자가 일치해야 합니다.\n
+  3.예약 확인 클릭하면 예약 접수가 되며, 예약 접수문자가 발송됩니다. 입금은 반드시 예약 대기 문자(예약 접수 문자 아님)받으신 후 입금바랍니다. 예약 접수 상태에서 입금 시 중복 예약으로 취소 될 수 있습니다.\n
+  4.예약 접수 및 승인 후 다음 날 오전 10시까지 미 입금 시 자동 취소 됩니다.\n
+  5.사용일 당일 및 전일 예약은 관리자 문의 후 진행되며 예약 후 취소 및 환불은 불가합니다.\n
+  6.입실 시간은 오후 2시, 퇴실 시간은 오전 11시입니다.\n
+  7.매너타임 밤 10시 부터 아침 07시 까지입니다.\n
+  8.입실 시 관리동에서 체크 인 후 입실 가능합니다.\n
+  9.14시 이전의 입실은 불가합니다. 오후 8시 이후의 입실은 사전에 반드시 연락 주시기 바랍니다.`;
+
+  const downText = `  예약확정일 ~ 사용일 9일전(90%환불)-10%차감\n
+  8일전(80%환불)-20%차\n
+  7일전(70%환불)-30%차\n
+  6일전(60%환불)-40%차\n
+  5일전(50%환불)-50%차\n
+  4일전(40%환불)-60%차\n
+  3일전(30%환불)-70%차\n
+  2일전(20%환불)-80%차감\n`;
+
+  if (!reserveData) {
+    return (
+      <>
+        <Navbar />
+        <div>로딩 중...</div>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
@@ -10,7 +63,9 @@ export const CampReserve = () => {
         <div className={css.contentDetailWrapper}>
           <div className={css.titleWrapper}>
             <div className={css.title1}>캠핑장 예약</div>
-            <div className={css.title2}>A-1 사이트 / 파쇄석 예약</div>
+            <div className={css.title2}>
+              {reserveData?.[pageIdx].siteName} 예약
+            </div>
             <div className={css.title3}>
               <br />
             </div>
@@ -25,7 +80,9 @@ export const CampReserve = () => {
               </div>
               <div className={css.reserveTextWrapper}>
                 <div className={css.textTitleWrapper}>
-                  <div className={css.textTitle}>A-1 사이트 / 파쇄석</div>
+                  <div className={css.textTitle}>
+                    {reserveData?.[pageIdx].siteName}
+                  </div>
                   <div className={css.textButton}>예약가능</div>
                 </div>
                 <ul>
@@ -181,7 +238,7 @@ export const CampReserve = () => {
             </div>
             <div className={css.calendarWrapper}>
               <div className={css.calendarTitle}>예약기간 선택</div>
-              <div className={css.calendarImage}></div>
+              <CustomCalendar reserve_data={reserveData} />
               <div className={css.calendarExplainWrapper}>
                 <div className={css.calendarExplainDetailWrapper}>
                   <div className={css.calendarExplain1}>-</div>
@@ -195,43 +252,12 @@ export const CampReserve = () => {
               <div className={css.notice1Title}>이용약관 동의</div>
 
               <div className={css.notice1ContentWrapper}>
-                <div className={css.notice1Title}>이용약관</div>
-                <ul>
-                  <li className={css.content1}>
-                    1.예약은 1인 1사이트(최대 인원 4인) 예약 가능합니다.(동일인
-                    2개 사이트 예약 시 취소됨)
-                  </li>
-                  <li className={css.content1}>
-                    2.입금자와 예약자가 일치해야 합니다.
-                  </li>
-                  <li className={css.content1}>
-                    3.예약 확인 클릭하면 예약 접수가 되며, 예약 접수문자가
-                    발송됩니다. 입금은 반드시 예약 대기 문자(예약 접수 문자
-                    아님)받으신 후 입금바랍니다. 예약 접수 상태에서 입금 시 중복
-                    예약으로 취소 될 수 있습니다.
-                  </li>
-                  <li className={css.content1}>
-                    4.예약 접수 및 승인 후 다음 날 오전 10시까지 미 입금 시 자동
-                    취소 됩니다.
-                  </li>
-                  <li className={css.content1}>
-                    5.사용일 당일 및 전일 예약은 관리자 문의 후 진행되며 예약 후
-                    취소 및 환불은 불가합니다.
-                  </li>
-                  <li className={css.content1}>
-                    6.입실 시간은 오후 2시, 퇴실 시간은 오전 11시입니다.
-                  </li>
-                  <li className={css.content1}>
-                    7.매너타임 밤 10시 부터 아침 07시 까지입니다.
-                  </li>
-                  <li className={css.content1}>
-                    8.입실 시 관리동에서 체크 인 후 입실 가능합니다.
-                  </li>
-                  <li className={css.content1}>
-                    9.14시 이전의 입실은 불가합니다. 오후 8시 이후의 입실은
-                    사전에 반드시 연락 주시기 바랍니다.
-                  </li>
-                </ul>
+                <div className={css.notice1TitleDetail}>이용약관</div>
+                <div className={css.notice1Content}>
+                  <div className={css.notice1ContentDetail}>
+                    <textarea value={upText}></textarea>
+                  </div>
+                </div>
               </div>
               <div className={css.agreeWrapper}>
                 <div className={css.notice1ExplainWrapper}>
@@ -251,23 +277,12 @@ export const CampReserve = () => {
             <div className={css.notice2DetailWrapper}>
               <div className={css.notice2Title}>환불규정 동의</div>
               <div className={css.notice2ContentWrapper}>
-                <div className={css.notice2Title}>환불규정</div>
-                <ul>
-                  <li className={css.content2}>예약 건 양도 절대불가합니다.</li>
-                  <li className={css.content2}>
-                    예약확정일 ~ 사용일 9일전(90%환불)-10%차감
-                  </li>
-                  <li className={css.content2}>8일전(80%환불)-20%차감</li>
-                  <li className={css.content2}>7일전(70%환불)-30%차감</li>
-                  <li className={css.content2}>6일전(60%환불)-40%차감</li>
-                  <li className={css.content2}>5일전(50%환불)-50%차감</li>
-                  <li className={css.content2}>4일전(40%환불)-60%차감</li>
-                  <li className={css.content2}>3일전(30%환불)-70%차감</li>
-                  <li className={css.content2}>2일전(20%환불)-80%차감</li>
-                  <li className={css.content2}>
-                    1일전( 0%환불)-100%차감 당일( 0%환불)-100%차감
-                  </li>
-                </ul>
+                <div className={css.notice2TitleDetail}>환불규정</div>
+                <div className={css.notice2Content}>
+                  <div className={css.notice2ContentDetail}>
+                    <textarea value={downText}></textarea>
+                  </div>
+                </div>
               </div>
               <div className={css.agreeWrapper}>
                 <div className={css.notice2ExplainWrapper}>

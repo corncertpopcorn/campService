@@ -34,16 +34,6 @@
     gap: 78px;
 
     .menu1 {
-      color: #358aea;
-      font-weight: 800;
-      cursor: pointer;
-      font-family: Pretendard;
-      font-size: 18px;
-      text-align: center;
-      transition: color 0.35s ease-in-out;
-    }
-
-    .menu {
       color: #556f87;
       text-align: center;
       font-family: Pretendard;
@@ -51,6 +41,53 @@
       font-weight: 400;
       cursor: pointer;
       transition: color 0.35s ease-in-out;
+
+      &.active1 {
+        color: #358aea;
+        font-weight: 800;
+      }
+    }
+    .menu2 {
+      color: #556f87;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color 0.35s ease-in-out;
+
+      &.active2 {
+        color: #358aea;
+        font-weight: 800;
+      }
+    }
+    .menu3 {
+      color: #556f87;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color 0.35s ease-in-out;
+
+      &.active3 {
+        color: #358aea;
+        font-weight: 800;
+      }
+    }
+    .menu4 {
+      color: #556f87;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color 0.35s ease-in-out;
+
+      &.active4 {
+        color: #358aea;
+        font-weight: 800;
+      }
     }
   }
 
@@ -93,12 +130,10 @@
       justify-content: center;
       width: 100%;
 
-      .menu1 {
-        font-size: 12px;
-        white-space: nowrap;
-      }
-
-      .menu {
+      .menu1,
+      .menu2,
+      .menu3,
+      .menu4 {
         font-size: 12px;
         white-space: nowrap;
       }

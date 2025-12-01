@@ -2,52 +2,193 @@ import css from "./main.module.scss";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
 import { ReserveList } from "../component/reserveList";
-import { CantReserveList } from "../component/cantReserveList";
-
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useRef, useState } from "react";
-import { TwoByThreeText } from "../component/twoByThreeText";
 import { LocationRightContent } from "../component/locationRightContent";
 import { ThreeTitle } from "../component/threeTitle";
 import { AdPicture } from "../component/adPicture";
 
 import adImage from "../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg";
+import { MainSlider } from "../component/mainSlider";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { admin } from "../util/serverSetting";
+import { url } from "inspector";
+import apiService from "../util/apiService";
+import { useNavigate } from "react-router-dom";
+
+//TODO:: todo작성 -> 필요한 주소 등의 데이터 참고 -> 데이터 기반 interface나 type 작성 -> axios 요청 -> 요청값 기반으로 다듬기 -> 다듬어진 데이터 기반으로 컴포넌트를 수정
+// -> ma
+// 요청때려보고 -> 퍼블리싱 된 내 코드에 맞게 interface 구성
+
+export interface MainData {
+  idx: number;
+  site_name: string;
+  site_idx: number;
+  start_price: number;
+  end_price: number;
+  title: string;
+  content: string;
+  img_1: string;
+  img_2: string;
+  img_3: string;
+  img_4: string;
+  info: string;
+}
+
+interface SectionData {
+  title: string;
+  subTitle: string;
+  description: string;
+}
+
+interface GuideAdData {
+  title: string;
+  imgSrc: string;
+  content: string;
+}
+
+interface SlideData {
+  content: string;
+}
+
+export interface AreaData {
+  name: string;
+  imgSrc: string;
+  description: string;
+  subData: string;
+}
+
+interface MapData {
+  mapImgData: string;
+  name: string;
+}
 
 export const Main = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false, // 기본 화살표 숨김
+  const [mainData, setMainData] = useState<MainData[] | null>(null);
+  const [sectionData, setSectionData] = useState<SectionData[] | null>(null);
+  const [guideAdData, setGuideAdData] = useState<GuideAdData[] | null>(null);
+  const [slideImg, setSlideImg] = useState<SlideData[] | null>(null);
+  const [areaData, setAreaData] = useState<AreaData[] | null>(null);
+  const [areaCount, SetAreaCount] = useState<number>(3);
+  const [mapData, setMapData] = useState<MapData[] | null>(null);
+  const [mapNumber, setMapNumber] = useState<number>(0);
+  const [upNotice, setUpNotice] = useState<string | null>(null);
+  const [downNotice, setDownNotice] = useState<string | null>(null);
+  const [popupState, setPopupState] = useState<number>(1);
 
-    beforeChange: (current: number, next: number) => setCurrentSlide(next),
+  const navigate = useNavigate();
 
-    initialSlide: 0, // 명시적으로 설정
-    afterChange: (index: number) => setCurrentSlide(index),
+  useEffect(() => {
+    // o /admin/camp/listAll -> 캠프장 리스트
+    // o /admin/home/list/section/text -> 위/아래 3줄 제목
+    // o /admin/home/list/travel/item -> 맨아래 지도옆
+    // o /admin/home/list/section -> 상단 4개짜리 안내
+    // o /admin/home/list/travel -> 맨아래 지도
+    // o /admin/home/list/slide -> 맨위 슬라이드 이미지
+    // o /admin/popup/list -> 메인 팝업 윗쪽
+    // o /admin/notice/view-pop -> 메인 팝업 아랫쪽
+
+    const fetchAllData = async () => {
+      const fetchMainData = async () => {
+        try {
+          const res = await apiService.get<MainData[]>("/camp/listAll");
+          setMainData(res.data);
+        } catch (error) {
+          console.error("캠핑장 데이터 로딩 실패:", error);
+        }
+      };
+
+      const fetchSectionData = async () => {
+        try {
+          const res = await apiService.get<SectionData[]>(
+            "/home/list/section/text"
+          );
+          setSectionData(res.data);
+        } catch (error) {
+          console.error("섹션 데이터 로딩 실패:", error);
+        }
+      };
+
+      const fetchGuideAdData = async () => {
+        try {
+          const res = await apiService.get<GuideAdData[]>("/home/list/section");
+          setGuideAdData(res.data);
+        } catch (error) {
+          console.error("가이드 광고 데이터 로딩 실패:", error);
+        }
+      };
+
+      const fetchSlideData = async () => {
+        try {
+          const res = await apiService.get<SlideData[]>("/home/list/slide");
+          setSlideImg(res.data);
+        } catch (error) {
+          console.error("슬라이드 데이터 로딩 실패:", error);
+        }
+      };
+
+      const fetchAreaData = async () => {
+        try {
+          const res = await apiService.get<AreaData[]>(
+            "/home/list/travel/item"
+          );
+          setAreaData(res.data);
+        } catch (error) {
+          console.error("지역 데이터 로딩 실패:", error);
+        }
+      };
+
+      const fetchMapData = async () => {
+        try {
+          const res = await apiService.get<MapData[]>("/home/list/travel");
+          setMapData(res.data);
+        } catch (error) {
+          console.error("맵 데이터 로딩 실패:", error);
+        }
+      };
+
+      const fetchUpNoticeData = async () => {
+        try {
+          const res = await apiService.get<any[]>("/popup/list");
+          setUpNotice(res.data[0].message);
+        } catch (error) {
+          console.error("상단 공지사항 로딩 실패:", error);
+        }
+      };
+
+      const fetchDownNoticeData = async () => {
+        try {
+          const res = await apiService.get<{ content: string }>(
+            "/notice/view-pop"
+          );
+          setDownNotice(res.data.content);
+        } catch (error) {
+          console.error("하단 공지사항 로딩 실패:", error);
+        }
+      };
+
+      fetchMainData();
+      fetchSectionData();
+      fetchGuideAdData();
+      fetchSlideData();
+      fetchAreaData();
+      fetchMapData();
+      fetchUpNoticeData();
+      fetchDownNoticeData();
+    };
+    fetchAllData();
+  }, []);
+
+  const handleAreaCount = () => {
+    if (areaData && areaData.length <= areaCount) {
+      return;
+    }
+    SetAreaCount(areaCount + 1);
   };
 
-  const sliderRef = useRef<Slider>(null);
-
-  const getPrevSlide = () => (currentSlide === 0 ? 2 : currentSlide - 1);
-  const getNextSlide = () => (currentSlide === 2 ? 0 : currentSlide + 1);
-
-  const handlePrevClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext(); // 반대로 변경
-    }
-  };
-
-  const handleNextClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev(); // 반대로 변경
-    }
+  const handleCampList = () => {
+    navigate("/list");
   };
 
   return (
@@ -55,50 +196,37 @@ export const Main = () => {
       <Navbar />
       <div className={css.wrapper}>
         <div className={css.contentWrapper}>
-          <div className={css.slideWrapper1}>
-            <div className={css.slideWrapper2}>
-              <div className={css.slideWrapper3}>
-                <button className={css.leftButton}></button>
-                <div className={css.slideWrapper4}>
-                  <div className={css.slideWrapper5}>
-                    <div className={css.slideWrapper6}></div>
-                  </div>
-                </div>
-                <button className={css.rightButton}></button>
-              </div>
-            </div>
-          </div>
+          <MainSlider
+            img1={slideImg?.[0]?.content || ""}
+            img2={slideImg?.[1]?.content || ""}
+            img3={slideImg?.[2]?.content || ""}
+          />
           <div className={css.adWrapper}>
             <ThreeTitle
-              title1="바다와 함께 즐기는 완벽한 휴식공간"
-              title2="여수 순천 최고 캠핑장,"
-              title21=" 두랭이해변오토캠핑장"
-              title3={`두랭이해변오토캠핑장은 바다와 함께 즐기는 완벽한 휴식공간입니다.
-        해안가에 자리잡은 캠핑장에서는 시원한 바람과 탁 트인 파도 소리를 들으며 마음의 평화를 찾을 수 있습니다.
-        `}
+              title1={sectionData ? sectionData[0].subTitle : ""}
+              title2={sectionData ? sectionData[0].title : ""}
+              title3={sectionData ? sectionData[0].description : ""}
             />
             <div className={css.adPictureWrapper}>
               <AdPicture
-                background_image={adImage}
-                title="개별 화장실"
-                content="넓고 깨끗한 화장실과 샤워실을 개별로 이용하실 수 있습니다."
+                background_image={guideAdData ? guideAdData[0].imgSrc : adImage}
+                title={guideAdData ? guideAdData[0].title : ""}
+                content={guideAdData ? guideAdData[0].content : ""}
               />
               <AdPicture
-                background_image={adImage}
-                title="캠핑장 안내도"
-                content="캠핑장의 모든 시설이 편리한 동선으로 배치되어 있습니다."
+                background_image={guideAdData ? guideAdData[1].imgSrc : adImage}
+                title={guideAdData ? guideAdData[1].title : ""}
+                content={guideAdData ? guideAdData[1].content : ""}
               />
               <AdPicture
-                background_image={adImage}
-                title="매점"
-                content="장작 / 얼음 및 가벼운 간식을 캠핑장에서 직접 운영 하는
-                    매점에서 판매중입니다."
+                background_image={guideAdData ? guideAdData[2].imgSrc : adImage}
+                title={guideAdData ? guideAdData[2].title : ""}
+                content={guideAdData ? guideAdData[2].content : ""}
               />
               <AdPicture
-                background_image={adImage}
-                title="최적의 지리적 위치"
-                content="여수 순천 보성 여행동선을 짤 수 있는 최적의 위치에 캠핑장이
-                    있습니다."
+                background_image={guideAdData ? guideAdData[3].imgSrc : adImage}
+                title={guideAdData ? guideAdData[3].title : ""}
+                content={guideAdData ? guideAdData[3].content : ""}
               />
             </div>
           </div>
@@ -108,41 +236,135 @@ export const Main = () => {
               title2="캠핑장 정보 및 예약 현황"
             />
             <div className={css.reserveContentWrapper}>
-              <ReserveList />
-              <ReserveList />
+              {mainData?.slice(1, 3).map((item) => {
+                return (
+                  <ReserveList
+                    idx={item.idx}
+                    site_name={item.site_name}
+                    site_idx={item.site_idx}
+                    start_price={item.start_price}
+                    end_price={item.end_price}
+                    title={item.title}
+                    content={item.content}
+                    img_1={item.img_1}
+                    img_2={item.img_2}
+                    img_3={item.img_3}
+                    img_4={item.img_4}
+                    info={item.info}
+                  />
+                );
+              })}
             </div>
-            <button className={css.reserveButton}>캠핑장 전체보기</button>
+            <button className={css.reserveButton} onClick={handleCampList}>
+              캠핑장 전체보기
+            </button>
           </div>
           <div className={css.locationWrapper}>
             <ThreeTitle
-              title1="여행지 정보"
-              title20="두랭이오토해변캠핑장"
-              title2="과 행복한 여행"
-              title3={`두랭이오토해변캠핑장의 위치와 가까운 여수 추천 여행지를 소개합니다.
-          즐거운 캠핑과 함께 주변 주요 관광지를 둘러보세요.
-          `}
+              title1={sectionData ? sectionData[1].subTitle : ""}
+              title2={sectionData ? sectionData[1].title : ""}
+              title3={sectionData ? sectionData[1].description : ""}
             />
             <div className={css.locationContentWrapper}>
               <div className={css.locationLeftWrapper}>
                 <div className={css.leftTitleWrapper}>
-                  <div className={css.leftTitle}>순천</div>
-                  <div className={css.leftTitle}>여수</div>
-                  <div className={css.leftTitle}>보성</div>
+                  <div
+                    className={`${css.leftTitle} ${
+                      mapNumber === 0 ? css.active : ""
+                    }`}
+                    onClick={() => setMapNumber(0)}
+                  >
+                    {mapData?.[0].name ?? ""}
+                  </div>
+                  <div
+                    className={`${css.leftTitle} ${
+                      mapNumber === 1 ? css.active : ""
+                    }`}
+                    onClick={() => setMapNumber(1)}
+                  >
+                    {mapData?.[1]?.name ?? ""}
+                  </div>
+                  <div
+                    className={`${css.leftTitle} ${
+                      mapNumber === 2 ? css.active : ""
+                    }`}
+                    onClick={() => setMapNumber(2)}
+                  >
+                    {mapData?.[2]?.name ?? ""}
+                  </div>
                 </div>
-                <div className={css.leftImageWrapper}></div>
+                <div
+                  className={css.leftImageWrapper}
+                  style={{
+                    backgroundImage: `url(${
+                      mapData?.[mapNumber]?.mapImgData ?? adImage
+                    })`,
+                  }}
+                ></div>
               </div>
               <div className={css.locationRightWrapper}>
-                <LocationRightContent />
-                <hr className={css.locationBar}></hr>
-                <LocationRightContent />
-                <hr className={css.locationBar}></hr>
-                <LocationRightContent />
-                <button className={css.moreButton}>더보기</button>
+                {areaData?.slice(0, areaCount).map((item) => (
+                  <>
+                    <LocationRightContent
+                      name={item.name}
+                      imgSrc={item.imgSrc}
+                      description={item.description}
+                      subData={item.subData}
+                    />
+                    <hr className={css.locationBar}></hr>
+                  </>
+                ))}
+                <button className={css.moreButton} onClick={handleAreaCount}>
+                  더보기
+                </button>
               </div>
             </div>
           </div>
           <Footer />
         </div>
+        {popupState && (
+          <div className={css.popupWrapper} onClick={() => setPopupState(0)}>
+            <div className={css.popupDetailWrapper}>
+              <div className={css.popupTitleWrapper}>
+                <span className={css.popupTitle}>공지사항</span>
+                <div className={css.popupTitleButton}></div>
+              </div>
+              <div className={css.popupContentWrapper}>
+                <>
+                  <div className={css.inputWrapper}>
+                    <label className={css.label}>예약 공지사항</label>
+                    <div className={css.labelWrapper}>
+                      <div className={css.labelDetailWrapper}>
+                        <textarea
+                          className={css.labelText}
+                          value={upNotice ?? ""}
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <hr className={css.inputBar}></hr>
+                  <div className={css.inputWrapper}>
+                    <label className={css.label}>메인 공지사항</label>
+                    <div className={css.labelWrapper}>
+                      <div className={css.labelDetailWrapper}>
+                        <textarea
+                          className={css.labelText}
+                          value={downNotice ?? ""}
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </>
+                <button
+                  className={css.popupClose}
+                  onClick={() => setPopupState(0)}
+                >
+                  닫기
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

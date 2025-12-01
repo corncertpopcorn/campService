@@ -1,8 +1,31 @@
+import { useEffect, useState } from "react";
 import { Footer } from "../component/footer";
 import { Navbar } from "../component/navbar";
 import css from "./guide.module.scss";
+import axios from "axios";
+import apiService from "../util/apiService";
+
+interface GuideData {
+  title: string;
+  content: string;
+}
 
 export const Guide = () => {
+  const [guideData, setGuideData] = useState<GuideData[] | null>(null);
+
+  useEffect(() => {
+    try {
+      //  /admin/use/list
+      const fetchGuideData = async () => {
+        const res = await apiService.get<any>(`/use/list`);
+        setGuideData(res.data);
+      };
+      fetchGuideData();
+    } catch (error) {
+      console.error(" 데이터 로딩 실패:", error);
+    }
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -15,51 +38,12 @@ export const Guide = () => {
               <br />
             </div>
           </div>
-          <div className={css.upBoxWrapper}>
-            <div className={css.upTitle}>예약</div>
-            <div className={css.upContentWrapper}>
-              <ul className={css.upContentDetailWrapper}>
-                <li className={css.upContent}>
-                  1인 1사이트(최대인원 방문객포함 4인) 예약 가능합니다.(동일인
-                  2개 사이트 예약 시 취소됨)
-                </li>
-                <li className={css.upContent}>
-                  2팀 이상 동반캠핑은 관리자 문의 후 예약 가능합니다.(관리자
-                  문의 없이 예약 시 취소처리됩니다)
-                </li>
-                <li className={css.upContent}>
-                  사용일 당일 및 전일 예약은 관리자 문의 후 진행되며 예약 후
-                  취소 및 환불은 불가합니다.{" "}
-                </li>
-                <li className={css.upContent}>
-                  방문객은 22시 전까지 퇴실하셔야 합니다.{" "}
-                </li>
-                <li className={css.upContent}>반려동물은 출입불가합니다. </li>
-                <li className={css.upContent}>
-                  카라반, 텐트 트레일러 예약 불가합니다.{" "}
-                </li>
-                <li className={css.upContent}>
-                  캠핑카 및 차박은 관리자에 문의 후 예약바랍니다.
-                </li>
-              </ul>
+          {guideData?.map((item) => (
+            <div className={css.upBoxWrapper}>
+              <div className={css.upTitle}>{item.title}</div>
+              <div className={css.upContentWrapper}>{item.content}</div>
             </div>
-          </div>
-          <div className={css.upBoxWrapper}>
-            <div className={css.upTitle}>이용요금</div>
-            <div className={css.upContentWrapper}>
-              <ul className={css.upContentDetailWrapper}>
-                <li className={css.upContent}>주중 : 55,000원~65,000원</li>
-                <li className={css.upContent}>주말 : 65,000원~75,000원 </li>
-                <li className={css.upContent}>
-                  주중 : 법정공휴일의 전일을 제외한 매주 일요일~목요일{" "}
-                </li>
-                <li className={css.upContent}>
-                  주말 : 매주 금요일, 토요일, 법정공휴일의 전일{" "}
-                </li>
-                <li className={css.upContent}>연박시 1박당 5,000원 할인</li>
-              </ul>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
       <Footer />

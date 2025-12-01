@@ -1,0 +1,594 @@
+.wrapper {
+  padding-top: 98px;
+
+  .contentWrapper {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    padding: 124px 12svw;
+    width: 100%;
+
+    .titleWrapper {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      font-family: Pretendard;
+      gap: 12px;
+      line-height: 150%;
+      text-align: center;
+      width: 100%;
+
+      .title1 {
+        color: #1f84ee;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .title2 {
+        color: #222;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 120%; /* 38.4px */
+      }
+
+      .title3 {
+        color: #4d4d4f;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .reserveListComponentWrapper1 {
+      align-items: stretch;
+      box-sizing: border-box;
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+      width: 100%;
+
+      .reserveListDetailWrapper {
+        align-items: stretch;
+        flex-direction: row;
+        gap: 24px;
+        width: 100%;
+        border: none;
+        padding: 0;
+        background-color: #fff;
+        border-radius: 12px;
+        box-sizing: border-box;
+        display: flex;
+        flex: 1 1;
+
+        .imageWrapper {
+          display: flex;
+          align-items: center;
+          flex: 0.8 1;
+          height: 100%;
+          gap: 14px;
+          min-width: 36%;
+          width: 100%;
+
+          .imageDetailWrapper {
+            align-items: stretch;
+            box-sizing: border-box;
+            display: flex;
+            gap: 24px;
+            justify-content: space-between;
+            width: 100%;
+
+            .leftImage {
+              height: 100%;
+              flex: 1 1;
+              aspect-ratio: 16/10;
+              object-fit: cover;
+              border-radius: 12px;
+              max-width: calc(50% - 7px);
+              background: url("../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg")
+                lightgray 50% / cover no-repeat;
+            }
+
+            .rightImage {
+              height: 100%;
+              flex: 1 1;
+              aspect-ratio: 16/10;
+              object-fit: cover;
+              border-radius: 12px;
+              max-width: calc(50% - 7px);
+              background: url("../image/16054745c9456b1175aa0ccd6c14397e576c6b66.jpg")
+                lightgray 50% / cover no-repeat;
+            }
+          }
+        }
+        .textWrapper {
+          align-items: flex-start;
+          display: flex;
+          flex: 1 1;
+          flex-direction: column;
+          gap: 12px;
+          padding: 12px 0;
+
+          .titleDetailWrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            width: 100%;
+
+            .title {
+              color: #1f84ee;
+              font-family: Pretendard;
+              font-size: 20px;
+              font-weight: 800;
+            }
+
+            .canReserve {
+              display: inline-block;
+              padding: 4px 12px;
+              border-radius: 4px;
+              background: #f9fcff;
+              color: #0085ff;
+              font-family: Pretendard;
+              font-size: 12px;
+              font-weight: 700;
+              line-height: 150%;
+              text-align: center;
+              white-space: nowrap;
+            }
+          }
+
+          ul {
+            color: #999;
+            font-family: Pretendard;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 134%;
+            margin-bottom: auto;
+            text-align: start;
+          }
+
+          .underContentWrapper {
+            align-items: flex-start;
+            border-top: 1px solid #dcdcdc;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 16px;
+            width: 100%;
+
+            .contentDetail {
+              color: #222;
+              font-family: Pretendard;
+              font-size: 18px;
+              font-weight: 700;
+              line-height: 150%;
+            }
+
+            .contentTextDetailWrapper {
+              display: flex;
+              align-items: center;
+
+              .text1 {
+                width: 114px;
+                color: #505050;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-weight: 600;
+                text-align: start;
+              }
+              .text2 {
+                color: #505050;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-weight: 400;
+                flex: 1 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .reserveListComponentWrapper2 {
+      align-items: flex-start;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      display: flex;
+      flex: 1 1;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: space-between;
+      padding: 20px 22px;
+      width: 100%;
+
+      h3 {
+        color: #424242;
+        font-family: Pretendard;
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .reserveListComponentWrapper3 {
+        background-color: #fff;
+        border-radius: 12px;
+        box-sizing: border-box;
+        display: flex;
+        flex: 1 1;
+        gap: 16px;
+        width: 100%;
+        padding: 0;
+        flex-direction: column;
+        align-items: stretch;
+        border: none;
+
+        .reserverWrapper {
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          border: none;
+          padding-top: 0px;
+          align-items: flex-start;
+          width: 100%;
+
+          h4 {
+            color: #222;
+            font-family: Pretendard;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 150%;
+          }
+
+          .reserverDetailWrapper {
+            align-items: center;
+            display: flex;
+
+            .reserverLeft {
+              color: #505050;
+              font-family: Pretendard;
+              font-size: 16px;
+              font-weight: 600;
+              width: 114px;
+              text-align: start;
+            }
+            .reserverRight {
+              color: #505050;
+              flex: 1 1;
+              font-family: Pretendard;
+              font-size: 16px;
+              font-weight: 400;
+            }
+          }
+        }
+        .priceWrapper {
+          align-items: flex-start;
+          border-top: 1px solid #dcdcdc;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding-top: 16px;
+          width: 100%;
+
+          .priceTitle {
+            color: #222;
+            font-family: Pretendard;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 150%;
+          }
+
+          .priceDetailWrapper {
+            display: flex;
+            align-items: stretch;
+            gap: 24px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            width: 100%;
+
+            .realPriceWrapper {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              align-items: flex-start;
+
+              .realPriceTitle {
+                color: #000;
+                font-family: Pretendard;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 120%;
+                width: 114px;
+                text-align: start;
+              }
+              .priceNumber1 {
+                color: #424242;
+                font-family: Pretendard;
+                font-size: 20px;
+                font-weight: 800;
+                line-height: 150%;
+                letter-spacing: 0.4px;
+              }
+
+              .priceNumber {
+                color: #1f84ee;
+                font-family: Pretendard;
+                font-size: 20px;
+                font-weight: 800;
+                line-height: 150%;
+                letter-spacing: 0.4px;
+              }
+
+              .priceNumber2 {
+                color: #dcdcdc;
+                font-family: Pretendard;
+                font-size: 20px;
+                font-weight: 800;
+                line-height: 150%;
+                letter-spacing: 0.4px;
+              }
+
+              .priceEtc {
+                color: #505050;
+                font-family: Pretendard;
+                font-size: 14px;
+                font-weight: 500;
+                flex: 1 1;
+              }
+            }
+          }
+        }
+        .noticeWrapper {
+          background: #fafafa;
+          border: 1px solid #e8e8e8;
+          border-radius: 4px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          justify-content: center;
+          padding: 12px;
+          width: 100%;
+
+          .notice {
+            color: #505050;
+            font-family: Pretendard;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 132%;
+            text-align: start;
+          }
+        }
+        .buttonWrapper {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          gap: 24px;
+          box-sizing: border-box;
+          align-items: stretch;
+
+          .lastButton {
+            justify-content: center;
+            line-height: 150%;
+            gap: var(--2, 8px);
+            font-weight: 800;
+
+            align-items: center;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            font-family: Pretendard;
+            background: linear-gradient(90deg, #6189ff, #61a5ff);
+            color: var(--white, var(--white, #fff));
+            height: fit-content;
+            padding: 16px;
+            flex: 1 1;
+            font-size: 18px;
+            transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    .contentWrapper {
+      gap: 28px;
+      padding: 42px 16px;
+
+      .titleWrapper {
+        gap: 8px;
+
+        .title1 {
+          font-size: 14px;
+          line-height: normal;
+        }
+
+        .title2 {
+          font-size: 18px;
+          line-height: normal;
+        }
+
+        .title3 {
+          font-size: 12px;
+          line-height: 140%;
+        }
+      }
+
+      .reserveListComponentWrapper1 {
+        align-items: center;
+        box-sizing: border-box;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+
+        .reserveListDetailWrapper {
+          flex-direction: column;
+          gap: 10px;
+          border-radius: 8px;
+
+          .imageWrapper {
+            gap: 10px;
+
+            .imageDetailWrapper {
+              flex-direction: row;
+              gap: 8px;
+              align-items: center;
+              box-sizing: border-box;
+              width: 100%;
+
+              .leftImage {
+                border-radius: 6px;
+                max-width: calc(50% - 4px);
+              }
+              .rightImage {
+                border-radius: 6px;
+                max-width: calc(50% - 4px);
+              }
+            }
+          }
+          .textWrapper {
+            padding: 0;
+
+            .titleDetailWrapper {
+              gap: 12px;
+
+              .title {
+                font-size: 14px;
+                font-weight: 700;
+              }
+              .canReserve {
+                font-size: 10px;
+                height: fit-content;
+                padding: 3px 8px;
+              }
+            }
+            ul {
+              font-size: 12px;
+            }
+
+            .underContentWrapper {
+              gap: 10px;
+              padding-top: 12px;
+
+              .contentDetail {
+                font-size: 14px;
+                line-height: 100%;
+              }
+
+              .contentTextDetailWrapper {
+                .text1 {
+                  font-size: 12px;
+                  width: 100px;
+                }
+                .text2 {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .reserveListComponentWrapper2 {
+        gap: 12px;
+        padding: 14px;
+
+        h3 {
+          font-size: 16px;
+        }
+        .reserveListComponentWrapper3 {
+          flex-direction: column;
+          gap: 10px;
+          border-radius: 8px;
+
+          .reserverWrapper {
+            gap: 6px;
+
+            h4 {
+              font-size: 14px;
+            }
+            .reserverDetailWrapper {
+              .reserverLeft {
+                font-size: 12px;
+                width: 100px;
+              }
+              .reserverRight {
+                font-size: 12px;
+              }
+            }
+          }
+          .priceWrapper {
+            gap: 6px;
+            padding-top: 12px;
+
+            .priceTitle {
+              font-size: 14px;
+            }
+            .priceDetailWrapper {
+              flex-direction: row;
+              align-items: center;
+              box-sizing: border-box;
+              gap: 16px;
+              width: 100%;
+
+              .realPriceWrapper {
+                flex: 1 1;
+                min-width: auto;
+
+                .realPriceTitle {
+                  font-size: 10px;
+                  width: auto;
+                }
+
+                .priceNumber1 {
+                  font-size: 12px;
+                  line-height: 150%;
+                  white-space: nowrap;
+                }
+                .priceNumber {
+                  font-size: 12px;
+                  line-height: 150%;
+                  white-space: nowrap;
+                }
+                .priceNumber2 {
+                  font-size: 12px;
+                  line-height: 150%;
+                  white-space: nowrap;
+                }
+                .priceEtc {
+                  font-size: 8px;
+                }
+              }
+            }
+          }
+          .noticeWrapper {
+            gap: 6px;
+            padding: 10px;
+
+            .notice {
+              font-size: 12px;
+            }
+          }
+          .buttonWrapper {
+            flex-direction: row;
+            padding-top: 12px;
+
+            .lastButton {
+              height: 48px;
+
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

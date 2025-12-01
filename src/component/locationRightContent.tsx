@@ -1,24 +1,31 @@
+import { AreaData } from "../page/main";
 import css from "./locationRightContent.module.scss";
 import { TwoByThreeText } from "./twoByThreeText";
 
-export const LocationRightContent = () => {
+export const LocationRightContent = ({
+  name,
+  imgSrc,
+  description,
+  subData,
+}: AreaData) => {
+  const parsedData = JSON.parse(subData);
   return (
     <div className={css.locationRightContentWrapper}>
       <div className={css.rightImage}>
-        <div className={css.rightImageDetail}></div>
+        <img src={imgSrc} className={css.rightImageDetail}></img>
       </div>
       <div className={css.rightContentWrapper}>
         <div className={css.title1}>
-          <span className={css.title1Detail}>오동도</span>
+          <span className={css.title1Detail}>{name}</span>
         </div>
-        <div className={css.title2}>
-          전남 여수에 위치한 두랭이오토해변캠핑장은 여수의 주요 여행지와 가까운
-          거리에 있는 최고 시설 캠핑장입니다. 캠핑장에 방문 후 즐거운 여수
-          여행을 시작하세요.
-        </div>
+        <div className={css.title2}>{description}</div>
         <div className={css.detailContentWrapper}>
           <div className={css.detailContentTitle}>주요정보</div>
-          <TwoByThreeText />
+          <TwoByThreeText
+            text1={parsedData.address}
+            text2={parsedData.driveTimeMinutes}
+            text3={parsedData.food}
+          />
         </div>
       </div>
     </div>

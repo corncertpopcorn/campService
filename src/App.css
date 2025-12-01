@@ -10,6 +10,48 @@
   pointer-events: none;
 }
 
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
+  display: flex !important;
+  gap: 32px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.slick-slide.slick-active {
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+.slick-slide.slick-active.slick-center.slick-current {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.slick-arrow {
+  z-index: 100 !important;
+  width: 84px !important;
+  height: 84px !important;
+  background-color: pink;
+  background-repeat: no-repeat !important;
+  background-size: auto 100% !important;
+  background-position: center !important;
+}
+.slick-arrow.slick-prev {
+  left: 36svw !important;
+  background-image: url("./image/Expand_left.svg") !important;
+}
+.slick-arrow.slick-next {
+  right: 36svw !important;
+  background-image: url("./image/Expand_right.svg") !important;
+}
+.slick-arrow.slick-prev::before,
+.slick-arrow.slick-next::before {
+  content: "";
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -57,15 +57,39 @@
 @media (max-width: 600px) {
   .wrapper {
     .contentWrapper {
-      padding: 40px 0;
-      gap: 40px;
+      padding: 42px 16px;
+      gap: 28px;
+
+      .titleWrapper {
+        gap: 8px;
+        .titleName1 {
+          font-size: 14px;
+          line-height: normal;
+        }
+        .titleName2 {
+          font-size: 18px;
+          line-height: normal;
+        }
+        .titleName3 {
+          font-size: 12px;
+          line-height: 140%;
+        }
+      }
 
       .reserveCampWrapper {
+        align-items: center;
+        box-sizing: border-box;
         flex-direction: column;
+        gap: 16px;
+        width: 100%;
       }
 
       .cantReserveWrapper {
+        align-items: center;
+        box-sizing: border-box;
         flex-direction: column;
+        gap: 16px;
+        width: 100%;
       }
     }
   }
